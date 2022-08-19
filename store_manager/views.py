@@ -10,3 +10,8 @@ def home():
 @views.route('/products', methods=['GET'])
 def products():
     return render_template('products.html')
+
+@views.route('/sales', methods=['GET'])
+def sales():
+    return render_template('sales.html')
+

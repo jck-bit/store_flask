@@ -14,9 +14,33 @@
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}" />
+
   <title>{% block title%}Home{% endblock %}</title>
 </head>
-<body class="ml-4 width-80%">
+
+<body>
+ <div class="container">
+  <strong>
+    <nav class="home-nav">
+      <ul class="home-ul-nav">
+        <li>
+          <a href="{{url_for('views.home')}}">Home</a>
+        </li>
+        <li>
+          <a href="{{url_for('auth.logout')}}">About</a>
+        </li>
+        <li>
+          <a href="{{url_for('views.products')}}">Contact</a>
+        </li>
+        <li>
+          <a href="{{url_for('auth.login')}}">Login</a>
+        </li>
+      </ul>
+    </nav>
+  </strong>
+
+
   {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
@@ -55,5 +79,7 @@
       type="text/javascript"
       src="{{ url_for('static', filename='index.js') }}"
     ></script>
+ </div>
 </body>
 </html>
+
