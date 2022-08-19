@@ -3,7 +3,7 @@
 {% block body %}
 
 
-<div class="container">
+<div class="container-home">
   <div class="products_page ">
     <p class="products_page_p">
       Welcome to the products page! <br />
@@ -14,15 +14,19 @@
     The admin can add new products to the store
     </p>
 
-   <button  type="button"class="btn btn-primary">
+   <button  type="button"class="button-pages">
      <a href="{{url_for('views.products')}}">Products</a>
    </button>
     
   </div>
   <div class="sales-page">
-    welcome to the sales page! <br />
+    <p class="sales_page_p">
+      Welcome to the sales page! <br />
     You can see the sales that have been made
     <br />
+    The admin can add new sales to the store
+    </p>
+    
     <button  type="button"class="btn btn-primary">
      <a href="{{url_for('views.sales')}}">Sales</a>
   </div>
