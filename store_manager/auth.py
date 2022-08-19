@@ -15,9 +15,9 @@ def login():
 
         else:
             flash('Invalid credentials.', category='error')
-            return render_template('login.html')
-      
-
+           
+    
+    return render_template('login.html')
 
 @auth.route('/logout')
 def logout():

@@ -1,11 +1,35 @@
 {% extends "base.html" %}
 
 {% block body %}
+
+
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Welcome to the store Manager</h1>
-    </div>
+  <div class="products_page ">
+    <p class="products_page_p">
+      Welcome to the products page! <br />
+    You Take a look at the products and you can add them to your cart
+    <br />
+    only The products that are in stock are shown
+    <br />
+    The admin can add new products to the store
+    </p>
+
+   <button  type="button"class="btn btn-primary">
+     <a href="{{url_for('views.products')}}">Products</a>
+   </button>
+    
+  </div>
+  <div class="sales-page">
+    welcome to the sales page! <br />
+    You can see the sales that have been made
+    <br />
+    <button  type="button"class="btn btn-primary">
+     <a href="{{url_for('views.sales')}}">Sales</a>
+  </div>
+  <div class="goals-store-manager">
+    welcome to the goals store manager
   </div>
 </div>
+
+
 {% endblock %}
