@@ -19,7 +19,7 @@ python3 main.py
 ```
 ## Author
 
-    Jack -[Jck Bit]()
+Jack - [Jck Bit](https://github.com/jck-bit)
 
 ## License
 
