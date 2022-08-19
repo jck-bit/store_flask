@@ -1,8 +1,10 @@
-*{
-    color: black;
+:root{
+  --padding-divs:5px;
+  --border-divs:1px solid #ccc;
+  --border-radius:5px;
+  --font-size:14px;
+
 }
-
-
 
 .home-nav{
     margin-top: 20px;
@@ -10,17 +12,17 @@
     padding:10px;
     background-color: rgb(169, 169, 254);
     border-radius: 4px;
-
 }
 
 .home-ul-nav{
     list-style: none;
-    padding: 0;
+    padding:var(--padding-divs);
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
+
+
 
 .home-ul-nav li{
     margin: 0 10px;
@@ -33,21 +35,61 @@
 }
 
 .products_page{
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 5px;
-    height: 15rem;
+   padding: var(--padding-divs);
+   border: var(--border-divs);
+   border-radius: var(--border-radius);
+   margin-right: 5px;
+   height: 15rem;
 }
 
 .products_page_p{
     font-weight: bold;
-    font-size: 14px;
+    font-size: var(--font-size);
     margin-bottom: 5px;
 
 }
 
+.button-pages{
+    background-color: rgb(169, 169, 254);
+    border:none;
+    border-radius: var(--border-radius);
+    padding: 12px 5px;
+    margin-top: 5px;
+    margin-left: 30%;
+    color: white;
+    font-weight: bold;
+    font-size: var(--font-size);
+}
+.button-pages:hover{
+    outline: none;
+    
+}
+
 .products_page a{
+    text-decoration: none;
+    color: black;
+}
+
+.container-home{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 5rem;
+}
+
+.sales-page{
+    padding: var(--padding-divs);
+    border: var(--border-divs);
+    border-radius: var(--border-radius);
+    margin-right: 5px;
+    height: 15rem;
+}
+.sales-page_p{
+    font-weight: bold;
+    font-size: var(--font-size);
+    margin-bottom: 5px;
+}
+
+.sales-page a{
     text-decoration: none;
     color: black;
 }
