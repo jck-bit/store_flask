@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 
-
 db = SQLAlchemy()
 DB_NAME = 'store_manager.db'
 
@@ -14,9 +13,6 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:/// {DB_NAME}'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
-
-
-   
 
     from .views import views
     from .auth import auth
@@ -35,7 +31,6 @@ def create_app():
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
-
     
     return app
 
