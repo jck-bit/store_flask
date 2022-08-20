@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-
+from os import path
+from flask_login import LoginManager
 
 db = SQLAlchemy()
 DB_NAME = 'store_manager.db'
@@ -18,5 +19,16 @@ def create_app():
 
     app.register_blueprint(views)
     app.register_blueprint(auth)
+
+    from .models import User, Products
+
+    create_database(app)
     
     return app
+
+def create_database(app):
+    if not path.exists('store_manager/' + DB_NAME):
+        db.create_all(app=app)
+        print('Database created')
+    else:
+        print('Database already exists')
