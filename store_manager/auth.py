@@ -1,4 +1,8 @@
 from flask import Blueprint, render_template, request, flash
+from .import db
+from .models import User
+
+
 
 auth = Blueprint('auth', __name__)
 
@@ -9,11 +13,13 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        if username == 'admin' and password == 'admin':
-            flash('You have been logged in.', category='success')
-            return render_template('home.html')
+        user = User.query.filter_by(username=username).first()
 
-        else:
+        if user:
+            if password == user.password:
+                flash('You are now logged in.')
+                return render_template('home.html')
+        
             flash('Invalid credentials.', category='error')
            
     
