@@ -17,12 +17,13 @@ def home():
 @views.route('/products', methods=['GET'])
 @login_required
 def products():
-    return render_template('products.html', user=current_user)
+    products = Products.query.all()
+
+    return render_template('products.html', products=products)
 
 @views.route('/sales', methods=['GET'])
 def sales():
     return render_template('sales.html')
-
 
 @views.route('/user', methods=['POST'])
 def create_user():
@@ -51,3 +52,19 @@ def users():
         }
         users_list.append(user_object)
     return jsonify(users_list)
+
+
+@views.route('/products', methods=['POST'])
+def create_product():
+    data = request.get_json()
+    name = data['name']
+    price = data['price']
+    description = data['description']
+
+    product = Products(name=name, price=price, description=description)
+    db.session.add(product)
+    db.session.commit()
+
+    return jsonify({'message': 'Product created successfully.'})
+
+
