@@ -6,7 +6,6 @@
 {% if products %}
 
 {% for product in products %}
-
 <div class="product">
     <div class="container-products">
         <div class="container-products-individual">
@@ -15,17 +14,16 @@
          <p><span>price</span>:{{ product.price }}</p>
          <div class="products-links">
              <a href="#" class="a-products">Edit</a>
-             <a href="#" class="a-products">Delete</a>
+            <button class=" a-products" onclick="deleteProduct({{ product.id}})">Delete</button>
          </div>
         </div>
     </div>
 </div>
 {% endfor %}
+
 {% else %}
 <p>No products found.</p>
 {% endif %}
 
 </div>
 {% endblock %}
-
-
