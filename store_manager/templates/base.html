@@ -21,10 +21,10 @@
 
 <body>
   
- <div class="container">
+ <div class="container my-4">
  
     <!-- only when you are logged in that you'll see the navbar -->
-
+{% if user.is_authenticated %}
   <strong>
     <nav class="home-nav">
       <ul class="home-ul-nav">
@@ -40,6 +40,7 @@
       </ul>
     </nav>
   </strong>
+{% endif %}
 
   {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
