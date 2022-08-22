@@ -5,6 +5,7 @@ version: 2.1
 jobs:
   # Job one with a unique name
   build:
+    working_directory: ~/circleci-python
     docker:
      - image: "circleci/python:3.6.4"
      
