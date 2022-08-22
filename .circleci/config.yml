@@ -11,7 +11,10 @@ jobs:
      
     steps:
       - checkout
-      - run: python3 main.py
+      - run: 
+          name: "Install dependencies"
+          command: "pip install -r requirements.txt"
+          python3 main.py
          
   say_goodbye:
     docker:
