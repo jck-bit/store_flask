@@ -11,9 +11,12 @@ jobs:
      
     steps:
       - checkout
+
       - run: 
           name: "Install dependencies"
           command: "pip install -r requirements.txt"
+      
+      - run:
           python3 main.py
          
   say_goodbye:
