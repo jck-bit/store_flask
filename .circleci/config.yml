@@ -8,8 +8,11 @@ jobs:
     docker:
      - image: "circleci/python:3.6.4"
     steps:
-      - run: ../store_flask/python3 main.py     
-  # Job two with a unique name
+      - run: 
+          -command: ../store_flask/main.py 
+          -run: 
+            -command: python3 main.py
+
   say_goodbye:
     docker:
      - image: cimg/base:2022.05
