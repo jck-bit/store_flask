@@ -107,7 +107,7 @@
     
 
 .container-products-individual{
-    width: 300px;
+    width: 340px;
     display: grid;
     align-items: center;
     margin: 20px;
@@ -129,8 +129,8 @@
 
 .a-products{
     text-decoration: none;
-    padding: 5px 15px;
+    padding: 5px 20px;
     border: 1px solid;
     border-radius: 4px;
-    margin-right: 8px;
+    margin-right: 4px;
 }

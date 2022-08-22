@@ -22,12 +22,11 @@ def products():
 @views.route('/delete-product', methods=['POST'])
 def delete_product():
     product = json.loads(request.data)
-    product_id = product['product_id']
-    product = Products.query.get(product_id)
+    product = Products.query.get(product['id'])
     db.session.delete(product)
     db.session.commit()
-
-    return jsonify({})
+    
+    return flash('Product deleted successfully')
 
 @views.route('/users', methods=['GET'])
 def users():
@@ -55,3 +54,30 @@ def create_product():
     db.session.commit()
 
     return jsonify({'message': 'Product created successfully.'})
+@views.route('/edit-product', methods=['POST'])
+def edit_product():
+    data = request.get_json()
+    product_id = data['product_id']
+    name = data['name']
+    price = data['price']
+    description = data['description']
+
+    product = Products.query.get(product_id)
+    product.name = name
+    product.price = price
+    product.description = description
+    db.session.commit()
+
+    return jsonify({'message': 'Product updated successfully.'})
+
+@views.route('/sales', methods=['POST'])
+def create_sale():
+    data = request.get_json()
+    product_id = data['product_id']
+    quantity = data['quantity']
+
+    product = Products.query.get(product_id)
+    product.quantity = quantity
+    db.session.commit()
+
+    return jsonify({'message': 'Sale created successfully.'})
