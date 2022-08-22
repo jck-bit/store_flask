@@ -15,7 +15,6 @@ jobs:
       - run: python3 main.py
     
 
-
   say_goodbye:
     docker:
      - image: cimg/base:2022.05
