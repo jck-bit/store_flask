@@ -1,13 +1,3 @@
-aniso8601
-click
-Flask
-Flask-RESTful
-Flask-SQLAlchemy
-itsdangerous
-Jinja2
-MarkupSafe
-pytz
-six
-SQLAlchemy
-Werkzeug
-Flask-Login
+Flask == 2.2.2
+Flask-Login == 0.6.2
+Flask-SQLAlchemy == 2.5.1
