@@ -9,9 +9,8 @@ jobs:
      - image: "circleci/python:3.6.4"
     steps:
       - run: 
-          -command: ../store_flask/main.py 
-          -run: 
-            -command: python3 main.py
+          command: ../store_flask/main.py 
+          
 
   say_goodbye:
     docker:
