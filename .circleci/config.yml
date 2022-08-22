@@ -1,23 +1,28 @@
+
 # CircleCI configuration file
 version: 2.1
 
 jobs:
+  # Job one with a unique name
   build:
-  working_directory: ~/circleci-python
     docker:
      - image: "circleci/python:3.6.4"
     steps:
-      - checkout
-      -run: python3 main.py
+      - run: 
+          -checkout
+          -run: python3 main.py         
+  # Job two with a unique name
+  say_goodbye:
+    docker:
+     - image: cimg/base:2022.05
+    steps:
+      - run: echo "Say goodbye to YAML!"
 
 workflows:
-    #Store manager
-    store_manager:
-      jobs:
-        - build
-      on:
-        branches:
-          - master
+  # Name of workflow
+  build:
 
-
-
+    # List of jobs that will run
+    jobs:
+      - build
+      - say_goodbye
