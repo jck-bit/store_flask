@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/circleci-python
     docker:
-     - image: "circleci/python:3.6.4"
+     - image: "circleci/python:3.9. 6"
      
     steps:
       - checkout
