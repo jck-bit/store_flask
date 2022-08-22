@@ -1,8 +1,8 @@
 function deleteProduct(id){
-    fetch('/delete-Product',{
+    fetch('/delete-product',{
         method: 'POST',
-        body: JSON.stringify({ product_id:id})
+        body: JSON.stringify({id}),
     }).then(() =>{
-        window.location.reload()
+        window.location.reload();
     })
 }
