@@ -1,24 +1,19 @@
-
-# CircleCI configuration file
 version: 2.1
-
 jobs:
-  # Job one with a unique name
   build:
-    working_directory: ~/circleci-python
-    docker:
-     - image: "circleci/python:3.9. 6"
-     
-    steps:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps: 
       - checkout
 
-      - run: 
-          name: "Install dependencies"
-          command: "pip3 install -r requirements.txt"
-      
       - run:
-          python3 main.py
-         
+          name: "Installing dependancies"
+          command: pip install requirements.txt
+
+      - run: python3 main.py
+    
+
+
   say_goodbye:
     docker:
      - image: cimg/base:2022.05
