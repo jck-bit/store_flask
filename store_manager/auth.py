@@ -25,7 +25,6 @@ def login():
                 
             flash('Invalid credentials.', category='error')
            
-    
     return render_template('login.html', user=current_user)
 
 @auth.route('/logout')
@@ -35,6 +34,7 @@ def logout():
     return redirect(url_for('auth.login'))
 
 @auth.route('/create-account' , methods=['GET', 'POST'])
+@login_required
 def create_account():
 
     if request.method == "POST":
@@ -48,9 +48,13 @@ def create_account():
         if user:
             flash('Email already exists.', category='error')
 
+        #if all fields are empty  then return error message
+        elif not email and not password1 and not password2 and not username:
+            flash('All fields are required.', category='error')
+        
         elif len(password1) < 6:
             flash('Password must be at least 6 characters', category='error')
-
+        
         elif password1 != password2:
             flash('Passwords do not match')
         
@@ -66,7 +70,7 @@ def create_account():
             flash('User created successfully', category='success')
             return redirect (url_for('views.home'))
 
-    return render_template('signup.html')
+    return render_template('signup.html', user=current_user)
     
 
 
