@@ -1,6 +1,7 @@
+from crypt import methods
 from flask import Blueprint, render_template, request, jsonify, flash, redirect, url_for
 from .import db
-from .models import User, Products
+from .models import Sales, User, Products
 from flask_login import   login_required, current_user
 import json
 
@@ -42,6 +43,22 @@ def users():
         users_list.append(user_object)
     return jsonify(users_list)
 
+@views.route('/sales', methods=['GET'])
+def get_all_sales():
+    sales = Sales.query.all()
+    sales_list = []
+    for sale in sales:
+
+        sales_object= {
+           'id':sale.id,
+           'total': sale.total,
+           'data' : sale.data,
+           'date' : sale.date
+        } 
+    sales_list.append(sales_object)
+
+    return jsonify(sales_list)
+
 @views.route('/products', methods=['POST'])
 def create_product():
     data = request.get_json()
@@ -54,6 +71,7 @@ def create_product():
     db.session.commit()
 
     return jsonify({'message': 'Product created successfully.'})
+    
 @views.route('/edit-product', methods=['POST'])
 def edit_product():
     data = request.get_json()
@@ -72,12 +90,11 @@ def edit_product():
 
 @views.route('/sales', methods=['POST'])
 def create_sale():
-    data = request.get_json()
-    product_id = data['product_id']
-    quantity = data['quantity']
+   sale = request.get_json()
 
-    product = Products.query.get(product_id)
-    product.quantity = quantity
-    db.session.commit()
+   new_sale = Sales(data=sale['data'], total=sale['total'])
 
-    return jsonify({'message': 'Sale created successfully.'})
+   db.session.add(new_sale)
+   db.session.commit()
+
+   return jsonify({'message': 'Sale created successfully.'})
