@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Blueprint, render_template, request, jsonify, flash, redirect, url_for
 from .import db
 from .models import Sales, User, Products
@@ -43,6 +42,8 @@ def users():
         users_list.append(user_object)
     return jsonify(users_list)
 
+
+
 @views.route('/sales', methods=['GET'])
 def get_all_sales():
     sales = Sales.query.all()
@@ -53,7 +54,8 @@ def get_all_sales():
            'id':sale.id,
            'total': sale.total,
            'data' : sale.data,
-           'date' : sale.date
+           'date' : sale.date,
+           'user_id':sale.user_id
         } 
     sales_list.append(sales_object)
 
