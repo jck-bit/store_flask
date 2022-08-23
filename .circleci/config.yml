@@ -1,19 +1,51 @@
+
+# # CircleCI configuration file
+# version: 2.1
+
+# jobs:
+#   # Job one with a unique name
+#   build:
+#     working_directory: ~/circleci-python
+#     docker:
+#      - image: "circleci/python:3.6.4"
+     
+#     steps:
+#       - checkout
+
+#       - run: 
+#           name: "Install dependencies"
+#           command: "pip3 install -r requirements.txt"
+      
+#       - run:
+#           python3 main.py
+         
+#   say_goodbye:
+#     docker:
+#      - image: cimg/base:2022.05
+#     steps:
+#       - run: echo "Say goodbye to YAML!"
+
+# workflows:
+#   # Name of workflow
+#   build:
+
+#     # List of jobs that will run
+#     jobs:
+#       - build
+#       - say_goodbye
+
+
+# CircleCI configuration file
 version: 2.1
 
 jobs:
-  build:
-    # machine:
-    #   image: ubuntu-2004:202010-01
-     docker: 
-      -image: "cimg/base:2022.05"
-    steps: 
-      - checkout
-      - run:
-          name: "Installing dependancies"
-          command: pip3 install requirements.txt
-
-      - run: python3 main.py
-    
+  # Job one with a unique name
+  say_hello:
+    docker:
+     - image: cimg/base:2022.05
+    steps:
+      - run: echo "Say hello to YAML!"
+  # Job two with a unique name
   say_goodbye:
     docker:
      - image: cimg/base:2022.05
@@ -22,9 +54,8 @@ jobs:
 
 workflows:
   # Name of workflow
-  build:
-
+  hello_and_goodbye:
     # List of jobs that will run
     jobs:
-      - build
+      - say_hello
       - say_goodbye
