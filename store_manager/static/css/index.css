@@ -3,14 +3,13 @@
   --border-divs:1px solid #ccc;
   --border-radius:5px;
   --font-size:14px;
-
 }
 
 .home-nav{
     margin-top: 20px;
     margin-bottom: 9px;
     padding:10px;
-    background-color: rgb(169, 169, 254);
+    background-color: rgb(176, 176, 178);
     border-radius: 4px;
 }
 
@@ -29,22 +28,7 @@
 
 .home-ul-nav li a{
     text-decoration: none;
-    color: white;
-}
-
-.products_page{
-   padding: var(--padding-divs);
-   border: var(--border-divs);
-   border-radius: var(--border-radius);
-   margin-right: 5px;
-   height: 15rem;
-}
-
-.products_page_p{
-    font-weight: bold;
-    font-size: var(--font-size);
-    margin-bottom: 5px;
-
+    color: #333;
 }
 
 .button-pages{
@@ -74,12 +58,24 @@
     grid-gap: 5rem;
 }
 
-.sales-page{
+.products_page{
+    height: 100px;
     padding: var(--padding-divs);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border: var(--border-divs);
     border-radius: var(--border-radius);
-    margin-right: 5px;
-    height: 15rem;
+}
+  
+.sales-page{
+    height: 100px;
+    padding: var(--padding-divs);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: var(--border-divs);
+    border-radius: var(--border-radius);
 }
 .sales-page_p{
     font-weight: bold;
@@ -105,7 +101,6 @@
     }
 }
     
-
 .container-products-individual{
     width: 340px;
     display: grid;
@@ -133,4 +128,11 @@
     border: 1px solid;
     border-radius: 4px;
     margin-right: 4px;
+}
+
+.container-sale{
+    width: fit-content;
+    border: var(--border-divs);
+    border-radius: var(--border-radius);
+    padding: var(--padding-divs);
 }
