@@ -4,8 +4,23 @@
 
 
 {% block body %}
+
 <div class="container">
-    Welcome
+  {% if sales%}
+
+   {% for sale in sales %}
+     <div class="container-sale">
+       <h3><span>Name: </span>{{sale.data}}</h3>
+       <h2><span>Date: </span>{{sale.date}}</h2>
+       <h1><span>Total: </span>{{sale.total}}</h1>
+       <h2><span>user_id: </span>{{sale.user_id}}</h2>
+     </div>
+   {% endfor%}
+   {% else%}
+
+ <p>no sales made</p>
+
+{% endif %}
 </div>
 
 {%  endblock %}

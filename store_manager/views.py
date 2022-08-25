@@ -43,7 +43,6 @@ def users():
     return jsonify(users_list)
 
 
-
 @views.route('/sales', methods=['GET'])
 def get_all_sales():
     sales = Sales.query.all()
@@ -59,7 +58,7 @@ def get_all_sales():
         } 
     sales_list.append(sales_object)
 
-    return jsonify(sales_list)
+    return render_template('sales.html', user=current_user, sales=sales)
 
 @views.route('/products', methods=['POST'])
 def create_product():

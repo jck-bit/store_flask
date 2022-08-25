@@ -4,31 +4,23 @@
 
 {% block body %}
 
+
+<h1>Welcome to the store Manager</h1>
+
 <div class="container-home">
   <div class="products_page ">
-    <p class="products_page_p">
-      Welcome to the products page! <br />
-    You Take a look at the products and you can add them to your cart
-    <br />
-    only The products that are in stock are shown
-    <br />
-    The admin can add new products to the store
-    </p>
-
+    <p class="products_page_p"></p>
+     view all th available elements in the store
    <button  type="button"class="button-pages">
      <a href="{{url_for('views.products')}}">Products</a>
    </button>
     
   </div>
   <div class="sales-page">
-    <p class="sales_page_p">
+    <p class="sales_page_p"></p>
       Welcome to the sales page! <br />
     You can see the sales that have been made
-    <br />
-    The admin can add new sales to the store
-    </p>
-    
-    <button  type="button"class="btn btn-primary">
+     <button  type="button"class="btn btn-primary">
      <a href="#">Sales</a>
   </div>
   <div class="goals-store-manager">
